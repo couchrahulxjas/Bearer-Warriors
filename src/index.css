@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-mental-50: #f4f6f3;
+  --color-mental-100: #e2e8df;
+  --color-mental-200: #c6d3c0;
+  --color-mental-300: #a2b79a;
+  --color-mental-400: #7b9671;
+  --color-mental-500: #5c7952;
+  --color-mental-600: #465f3e;
+  --color-mental-700: #384d32;
+  --color-mental-800: #2f402a;
+  --color-mental-900: #273523;
+  --color-mental-950: #141c11;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-fade-in: fade-in 1s ease-out;
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer base {
+  :root {
+    --background: #fdfdfc;
+    --foreground: #1c211a;
+    --card: #f8f9f7;
+    --card-foreground: #1c211a;
+    --popover: #fdfdfc;
+    --popover-foreground: #1c211a;
+    --primary: #465f3e;
+    --primary-foreground: #f4f6f3;
+    --secondary: #e2e8df;
+    --secondary-foreground: #2f402a;
+    --muted: #f4f6f3;
+    --muted-foreground: #5c7952;
+    --accent: #f4f6f3;
+    --accent-foreground: #273523;
+    --border: #e2e8df;
+    --input: #e2e8df;
+    --ring: #465f3e;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: #121411; 
+    --foreground: #f4f6f3;
+    --card: #171a16;
+    --card-foreground: #f4f6f3;
+    --popover: #171a16;
+    --popover-foreground: #f4f6f3;
+    --primary: #7b9671;
+    --primary-foreground: #121411;
+    --secondary: #2f402a;
+    --secondary-foreground: #f4f6f3;
+    --muted: #1c211a;
+    --muted-foreground: #a2b79a;
+    --accent: #273523;
+    --accent-foreground: #f4f6f3;
+    --border: #2f402a;
+    --input: #2f402a;
+    --ring: #7b9671;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight font-normal;
+  }
+}
+
+/* Custom Tag Colors - softened and organic */
+.tag-mental {
+  @apply px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase border backdrop-blur-sm transition-colors bg-emerald-100 text-emerald-800 border-emerald-200/50 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800/50 hover:bg-emerald-200/50;
+}
+.tag-control {
+  @apply px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase border backdrop-blur-sm transition-colors bg-indigo-100 text-indigo-800 border-indigo-200/50 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800/50 hover:bg-indigo-200/50;
+}
+.tag-drugs {
+  @apply px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase border backdrop-blur-sm transition-colors bg-rose-100 text-rose-800 border-rose-200/50 dark:bg-rose-900/30 dark:text-rose-300 dark:border-rose-800/50 hover:bg-rose-200/50;
+}
+.tag-life {
+  @apply px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase border backdrop-blur-sm transition-colors bg-amber-100 text-amber-800 border-amber-200/50 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800/50 hover:bg-amber-200/50;
+}
